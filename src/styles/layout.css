@@ -5,3 +5,12 @@
   padding: 20px;
   margin: 0 20px;
 }
+
+.boxTitle {
+  padding-left: 10px;
+  color: #6d7993;
+}
+
+.row {
+  display: flex;
+}

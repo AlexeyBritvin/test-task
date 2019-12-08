@@ -20,10 +20,14 @@
 
 .calendarItem:hover span {
   cursor: pointer;
-  background-color: #75cdf9;
+  background-color: #aee4ff;
 }
 
 .calendarItemActive span {
-  background-color: #75cdf9;
+  background-color: #aee4ff;
   color: #ffffff;
+}
+
+.hasTodos span {
+  color: #a6266e;
 }

@@ -12,14 +12,14 @@ export default class Calendar extends Vue {
   private date = new Date();
   private store = useStore<RootStore>(this.$store);
 
-  private get numberOfDays() {
+  private get numberOfDays(): number {
     const year = this.date.getFullYear();
     const month = this.date.getMonth();
     
     return new Date(year, month + 1, 0).getDate();
   }
 
-  private get arrayOfDays() {
+  private get arrayOfDays(): number[] {
     const arr = [];
 
     for (let i = 1; i <= this.numberOfDays; i++) {
@@ -29,7 +29,7 @@ export default class Calendar extends Vue {
     return arr;
   }
 
-  private get title() {
+  private get title(): string {
     const month = this.date.toLocaleString('ru', { month: 'long' });
     const year = this.date.getFullYear();
     const [first, ...rest] = month.split('');
@@ -37,10 +37,19 @@ export default class Calendar extends Vue {
     return `${capitalMonth} ${year}`;
   }
 
+  private get currentDay(): number {
+    return this.store.calendar.activeDay;
+  }
+
+  private hasTodos(day: number): boolean {
+    const { todos } = this.store.todoList;
+    return Boolean(todos[day]);
+  }
+
   render() {
     return (
       <div class={layout.box}>
-        <p class={styles.calendarTitle}>{this.title}</p>
+        <p class={layout.boxTitle}>{this.title}</p>
         <ul class={styles.grid}>
           { this.labels.map(label => <li class={[styles.gridItem, styles.calendarLabel]}><span>{label}</span></li>) }
         </ul>
@@ -48,7 +57,8 @@ export default class Calendar extends Vue {
           { this.arrayOfDays.map(day => {
               return (
                 <CalendarItem day={day} 
-                              active={day === this.store.calendar.activeDay}
+                              active={day === this.currentDay}
+                              hasTodos={this.hasTodos(day)}
                 ></CalendarItem>
               );
             })

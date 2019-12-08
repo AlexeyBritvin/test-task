@@ -1,0 +1,12 @@
+.todo {
+  padding: 5px 10px;
+}
+
+.todoText {
+  display: inline-block;
+  padding-left: 4px;
+}
+
+.completed span {
+  text-decoration: line-through;
+}

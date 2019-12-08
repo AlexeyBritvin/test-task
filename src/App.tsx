@@ -1,18 +1,19 @@
 import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from './components/HelloWorld';
 import Calendar from './modules/Calendar/Calendar';
-const logo = require('./assets/logo.png')
+import TodoList from './modules/TodoList/TodoList';
 
 import './App.css'
+import layout from './styles/layout.css?module';
 
 @Component
 export default class App extends Vue {
-  private message: string = 'Welcome to Your Vue.js + TypeScript App';
-
   render() {
     return (
       <div id="app">
-        <Calendar></Calendar>
+        <div class={layout.row}>
+          <Calendar></Calendar>
+          <TodoList></TodoList>
+        </div>
       </div>
     )
   }
