@@ -1,5 +1,6 @@
 import { Component, Vue } from 'vue-property-decorator';
 import HelloWorld from './components/HelloWorld';
+import Calendar from './modules/Calendar/Calendar';
 const logo = require('./assets/logo.png')
 
 import './App.css'
@@ -11,8 +12,7 @@ export default class App extends Vue {
   render() {
     return (
       <div id="app">
-        <img alt="Vue logo" src={logo} />
-        <HelloWorld msg={this.message} />
+        <Calendar></Calendar>
       </div>
     )
   }

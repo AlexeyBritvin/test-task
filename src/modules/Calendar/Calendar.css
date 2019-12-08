@@ -1,0 +1,24 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 40px);
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+.gridItem {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendarLabel {
+  color: #ccc;
+}
+
+.calendarTitle {
+  padding-left: 10px;
+  color: #6d7993;
+}
